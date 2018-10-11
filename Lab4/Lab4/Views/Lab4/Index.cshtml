@@ -1,0 +1,50 @@
+﻿@model Microsoft.AspNetCore.Html.HtmlString
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  
+    <script>
+        function Greeting() {
+            var dt = new Date();
+            var secs = dt.getSeconds() + (60 * dt.getMinutes()) + (60 * 60 * dt.getHours());
+            var greetings = document.getElementById("greetings").innerHTML;
+            if (secs < 43200) {
+                document.getElementById("greetings").innerHTML = "Good Morning";
+
+            }
+            else if (secs < 64800 && secs > 43200) {
+                document.getElementById("greetings").innerHTML = "Good Afternoon";
+
+            }
+            else if (secs > 64800) {
+                document.getElementById("greetings").innerHTML = "Good Evening";
+
+            }
+        }
+    </script>
+</head>
+<body onload="Greeting()">
+    <div class="jumbotron">
+        <h2 id="greetings"></h2>
+    </div>
+    @{ ViewData["Title"] = "Index";
+
+        var date = DateTime.Today;
+        var lastdate = new DateTime(date.Year, 12, 31).DayOfYear;
+        var today = DateTime.Today.DayOfYear;
+        var daysleft = lastdate - today;
+        var time = DateTime.Now.ToString("h:mm tt");
+    }
+    <p>It is now @time on @DateTime.Now.ToString("dddd, dd MMMM yyyy")</p>
+    <p>There are @daysleft days left in the year</p>
+    <a href="Lab4/Waffle" class="btn btn-success" role="button">Generate Waffles</a>
+
+</body>
+
+</html>

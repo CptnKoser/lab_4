@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Html;
+@model Microsoft.AspNetCore.Html.HtmlString
+
+@{
+    ViewData["Title"] = "Waffle";
+}
+
+<main>
+
+    <div class="bg-primary">
+        <h1>Waffle Generator</h1>
+    </div>
+    <div class="buttons">
+        <div class="inline-block">
+            <a class="btn btn-success" role="button" href="~/Lab4/Waffle/1">1</a>
+            <a class="btn btn-success" role="button" href="~/Lab4/Waffle/2">2</a>
+            <a class="btn btn-success" role="button" href="~/Lab4/Waffle/3">3</a>
+            <a class="btn btn-success" role="button" href="~/Lab4/Waffle/4">4</a>
+            <a class="btn btn-success" role="button" href="~/Lab4/Waffle/5">5</a>
+        </div>
+    </div>
+    <h2>@Model</h2>
+</main>
